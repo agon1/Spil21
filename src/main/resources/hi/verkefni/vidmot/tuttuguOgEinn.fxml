@@ -63,7 +63,9 @@ Notendaviðmót fyrir aðalviðmót spil 21
                             <children>
                                 <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d2d1d0" height="266.0" stroke="BLACK"
                                            strokeType="INSIDE" width="149.0"/>
-                                <VBox alignment="CENTER" prefHeight="234.0" prefWidth="191.0" spacing="5.0">
+                                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                                      minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="155.0"
+                                      spacing="5.0">
                                     <children>
                                         <Button fx:id="fxNyrLeikur" mnemonicParsing="false" onAction="#nyrLeikurHandler"
                                                 prefHeight="25.0" prefWidth="139.0" text="Nýr leikur">
@@ -71,11 +73,11 @@ Notendaviðmót fyrir aðalviðmót spil 21
                                                 <Font size="14.0"/>
                                             </font>
                                             <VBox.margin>
-                                                <Insets bottom="20.0"/>
+                                                <Insets/>
                                             </VBox.margin>
                                         </Button>
                                         <Button fx:id="fxKomidNog" mnemonicParsing="false" onAction="#komidNogHandler"
-                                                prefHeight="25.0" prefWidth="139.0" text="Komið nóg">
+                                                prefHeight="30.0" prefWidth="139.0" text="Komið nóg">
                                             <font>
                                                 <Font size="14.0"/>
                                             </font>
@@ -88,9 +90,19 @@ Notendaviðmót fyrir aðalviðmót spil 21
                                             </font>
                                         </Button>
                                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0"
-                                                text="Your Bet:"/>
-                                        <TextField maxWidth="-Infinity" minHeight="-Infinity" minWidth="67.0"
-                                                   prefHeight="35.0" prefWidth="106.0"/>
+                                                text="Your Bet:">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Button>
+                                        <TextField fx:id="fxBet" maxWidth="-Infinity" minHeight="-Infinity"
+                                                   minWidth="67.0" prefHeight="35.0" prefWidth="106.0"/>
+                                        <Button fx:id="fxDouble" mnemonicParsing="false" prefHeight="27.0"
+                                                prefWidth="139.0" text="Double">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Button>
                                     </children>
                                 </VBox>
                             </children>
