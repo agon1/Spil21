@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Ebba Þóra Hvannberg
+Notendaviðmót fyrir dialog sem biður um nafn leikmanns
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<fx:root minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="303.0"
+         type="javafx.scene.control.DialogPane" xmlns="http://javafx.com/javafx/17.0.2-ea"
+         xmlns:fx="http://javafx.com/fxml/1">
+    <header>
+        <Label prefHeight="42.0" prefWidth="360.0" text="Veldu upphæð  til að byrja með">
+            <padding>
+                <Insets left="10.0"/>
+            </padding>
+        </Label>
+    </header>
+    <ButtonType fx:id="fxILagi" buttonData="OK_DONE" text="Í lagi"/>
+    <ButtonType fx:id="fxHaettaVid" buttonData="CANCEL_CLOSE" text="Hætta við"/>
+    <content>
+        <VBox prefHeight="200.0" prefWidth="100.0">
+            <children>
+                <TextField fx:id="fxBalance" prefHeight="45.0" prefWidth="268.0"/>
+            </children>
+        </VBox>
+    </content>
+</fx:root>
