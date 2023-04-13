@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Ebba Þóra Hvannberg
+Notendaviðmót fyrir aðalviðmót spil 21
+-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.*?>
+<Pane prefHeight="485.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="hi.verkefni.vidmot.SpilController">
+    <children>
+        <HBox prefHeight="485.0" prefWidth="773.0" style="-fx-background-color: black;">
+            <children>
+                <StackPane prefHeight="475.0" prefWidth="612.0">
+                    <children>
+                        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d2d1d0" height="472.0" stroke="BLACK"
+                                   strokeType="INSIDE" width="607.0"/>
+                        <VBox alignment="CENTER" prefHeight="475.0" prefWidth="413.0">
+                            <children>
+                                <Text fx:id="fxDealerNafn" strokeType="OUTSIDE" strokeWidth="0.0" text="Dealer: 0 stig"
+                                      textAlignment="CENTER" wrappingWidth="258.13672828674316">
+                                    <font>
+                                        <Font size="25.0"/>
+                                    </font>
+                                </Text>
+                                <HBox fx:id="fxDealer" prefHeight="204.0" prefWidth="376.0">
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <Text fx:id="fxLeikmadurNafn" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="Anna: 20 stig" textAlignment="CENTER" wrappingWidth="258.13672828674316">
+                                    <font>
+                                        <Font size="25.0"/>
+                                    </font>
+                                </Text>
+                                <Label prefHeight="17.0" prefWidth="83.0" text="Balance:">
+                                    <font>
+                                        <Font size="15.0"/>
+                                    </font>
+                                </Label>
+                                <HBox fx:id="fxLeikmadur" alignment="CENTER_LEFT" prefHeight="203.0" prefWidth="597.0">
+
+                                    <VBox.margin>
+                                        <Insets left="10.0"/>
+                                    </VBox.margin>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </StackPane>
+                <VBox prefHeight="475.0" prefWidth="162.0">
+                    <children>
+                        <Region prefHeight="360.0" prefWidth="162.0"/>
+                        <StackPane prefHeight="430.0" prefWidth="201.0">
+                            <children>
+                                <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d2d1d0" height="266.0" stroke="BLACK"
+                                           strokeType="INSIDE" width="149.0"/>
+                                <VBox alignment="CENTER" prefHeight="234.0" prefWidth="191.0" spacing="5.0">
+                                    <children>
+                                        <Button fx:id="fxNyrLeikur" mnemonicParsing="false" onAction="#nyrLeikurHandler"
+                                                prefHeight="25.0" prefWidth="139.0" text="Nýr leikur">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="20.0"/>
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button fx:id="fxKomidNog" mnemonicParsing="false" onAction="#komidNogHandler"
+                                                prefHeight="25.0" prefWidth="139.0" text="Komið nóg">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="fxNyttSpil" layoutX="18.0" layoutY="114.0"
+                                                mnemonicParsing="false" onAction="#nyttSpilHandler" prefHeight="25.0"
+                                                prefWidth="139.0" text="Nýtt spil">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Button>
+                                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0"
+                                                text="Your Bet:"/>
+                                        <TextField maxWidth="-Infinity" minHeight="-Infinity" minWidth="67.0"
+                                                   prefHeight="35.0" prefWidth="106.0"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </StackPane>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+        </HBox>
+    </children>
+</Pane>

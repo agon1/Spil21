@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Spil21Library">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Spil21Library.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

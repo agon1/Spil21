@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Ebba Þóra Hvannberg
+Notendaviðmót fyrir dialog sem biður um nafn leikmanns
+-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="264.0" type="javafx.scene.control.DialogPane" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <header>
+      <Label prefHeight="42.0" prefWidth="360.0" text="Nafn leikmanns">
+         <padding>
+            <Insets left="10.0" />
+         </padding></Label>
+   </header>
+   <content>
+      <HBox prefHeight="86.0" prefWidth="183.0">
+         <children>
+            <TextField fx:id="fxLeikmadur" prefHeight="45.0" prefWidth="268.0" />
+         </children>
+      </HBox>
+   </content>
+   <ButtonType fx:id="fxILagi" buttonData="OK_DONE" text="Í lagi" />
+   <ButtonType fx:id="fxHaettaVid" buttonData="CANCEL_CLOSE" text="Hætta við" />
+</fx:root>
