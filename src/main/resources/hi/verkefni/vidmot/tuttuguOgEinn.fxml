@@ -10,8 +10,8 @@ Notendaviðmót fyrir aðalviðmót spil 21
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.*?>
-<Pane prefHeight="485.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="hi.verkefni.vidmot.SpilController">
+<Pane prefHeight="485.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.verkefni.vidmot.SpilController">
     <children>
         <HBox prefHeight="485.0" prefWidth="773.0" style="-fx-background-color: black;">
             <children>
@@ -38,7 +38,9 @@ Notendaviðmót fyrir aðalviðmót spil 21
                                         <Font size="25.0"/>
                                     </font>
                                 </Text>
-                                <Label prefHeight="17.0" prefWidth="83.0" text="Balance:">
+                                <Label fx:id="fxBalance" maxHeight="-Infinity" maxWidth="-Infinity"
+                                       minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="83.0"
+                                       text="Balance:">
                                     <font>
                                         <Font size="15.0"/>
                                     </font>

@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
@@ -20,7 +21,7 @@ import javafx.scene.text.Text;
  *
  *
  *****************************************************************************/
-public class SpilController  {
+public class SpilController {
 
     // fastar
     public static final String DEALER = "Dealer"; // nafnið á dealer
@@ -40,6 +41,8 @@ public class SpilController  {
     @FXML
     private Text fxLeikmadurNafn;
     @FXML
+    private Label fxBalance;
+    @FXML
     private HBox fxDealer;      // spilin á hendi í notendaviðmótinu
     @FXML
     private HBox fxLeikmadur;
@@ -54,14 +57,17 @@ public class SpilController  {
 
     /**
      * Frumstilla vinnslu. Hefjaj nýjan leik. Biðja um nafn leikmanns
-     *
      */
 
     public void initialize() {
         dealer = new Leikmadur(DEALER, MAX);
         String nafn = hvadHeitirLeikmadur();
         leikmadur = new Leikmadur(nafn, MAX);
+        int balance = hvadBalance();
+        System.out.println(balance);
         nyrLeikurHandler(null);
+        fxBalance.setText("Balance: " + balance);
+        System.out.println(leikmadur.getBalance());
     }
 
     /**
@@ -77,6 +83,18 @@ public class SpilController  {
         }
         return nafn;
     }
+
+    private int hvadBalance() {
+        BalanceDialogPane b = new BalanceDialogPane();
+
+        int balance = Integer.parseInt(b.hvadBalance());
+        System.out.println(balance);
+        if (balance <= 0) { // ef ekkert nafn þá hætta í forriti
+            Platform.exit();
+        }
+        return balance;
+    }
+
 
     /**
      * Handler fyrir að setja út nýtt spil - athuga hvor vann

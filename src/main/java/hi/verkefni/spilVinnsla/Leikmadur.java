@@ -20,7 +20,8 @@ public class Leikmadur implements LeikmadurInterface {
     private int samtals;    // samtals á hendi
     private int fjoldi;     // fjöldi spila
     private final int max;  // hámark fjöldi spila
-    
+    private int balance;
+
 
     public Leikmadur(String n, int max) {
         this.nafn = n;
@@ -31,10 +32,26 @@ public class Leikmadur implements LeikmadurInterface {
         return samtals;
     }
 
-
     public String getNafn() {
         return nafn;
     }
+
+    public int getFjoldi() {
+        return fjoldi;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
 
     public void setNafn(String nafn) {
         this.nafn = nafn;
