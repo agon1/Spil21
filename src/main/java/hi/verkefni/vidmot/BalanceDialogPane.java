@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.util.Optional;
 
 /******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
+ *  Nafn    :
+ *  T-póstur:
  *
- *  Lýsing  : Dialog pane sem biður um nafn leikmanns
+ *  Lýsing  : Dialog pane sem biður um upphæð til að byrja með
  *
  *
  *****************************************************************************/
@@ -29,11 +29,10 @@ public class BalanceDialogPane extends DialogPane {
     }
 
     /**
-     * Opnar dialog sem leyfir notanda að setja inn nafn leikmanns
+     * Opnar dialog sem leyfir notanda að inn hversu mikill pening hann vill byrja með
      *
-     * @return skilar nafni leikmanns en null ef notandi hætti við
+     * @return skilar upphæð en null ef notandi hætti við
      */
-
     public String hvadBalance() {
         Dialog<ButtonType> d = new Dialog<>();
         d.setDialogPane(this);

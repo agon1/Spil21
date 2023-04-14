@@ -23,8 +23,6 @@ public class LeikmadurDialogPane extends DialogPane {
     // viðmótshlutir
     @FXML
     private TextField fxLeikmadur;
-    @FXML
-    private TextField fxBalance;
 
 
     public LeikmadurDialogPane() {
@@ -48,20 +46,6 @@ public class LeikmadurDialogPane extends DialogPane {
         }
         return null;
     }
-
-    public String hvadBalance() {
-        Dialog<ButtonType> d = new Dialog<>();
-        d.setDialogPane(this);
-        //  setConverter(d);    // ef þú vilt nota resultConverter í staðinn fyrir if-setninguna
-
-        Optional<ButtonType> utkoma = d.showAndWait();
-        if (utkoma.isPresent() && (utkoma.get()
-                .getButtonData() == ButtonBar.ButtonData.OK_DONE)) {
-            return getBalance();
-        }
-        return null;
-    }
-
 
     /**
      * Sýnir result converter fyrir Dialog<String>
@@ -94,9 +78,5 @@ public class LeikmadurDialogPane extends DialogPane {
     // getterar
     public String getNafn() {
         return fxLeikmadur.getText();
-    }
-
-    public String getBalance() {
-        return fxBalance.getText();
     }
 }

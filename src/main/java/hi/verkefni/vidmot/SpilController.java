@@ -7,8 +7,10 @@ import hi.verkefni.vinnsla.Stokkur;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
@@ -35,6 +37,10 @@ public class SpilController {
     private Button fxKomidNog;
     @FXML
     private Button fxNyttSpil;
+    @FXML
+    private Button fxBetButton;
+    @FXML
+    private Button fxDouble;
 
     @FXML
     private Text fxDealerNafn;  // inniheldur nafn og samtölu - en hefði mátt skipta í tvær breytur
@@ -46,6 +52,8 @@ public class SpilController {
     private HBox fxDealer;      // spilin á hendi í notendaviðmótinu
     @FXML
     private HBox fxLeikmadur;
+    @FXML
+    private TextField fxBet;
 
     private final Stada stada = new Stada();   // stöður notendaviðmóts
 
@@ -53,6 +61,9 @@ public class SpilController {
     private Leikmadur leikmadur;    // leikmaður
     private Leikmadur dealer;       // dealer
     private Stokkur stokkur = new Stokkur();    // spilastokkur
+
+    private int balance;
+    private int bet;
 
 
     /**
@@ -64,10 +75,8 @@ public class SpilController {
         String nafn = hvadHeitirLeikmadur();
         leikmadur = new Leikmadur(nafn, MAX);
         int balance = hvadBalance();
-        System.out.println(balance);
-        nyrLeikurHandler(null);
+        reset();
         fxBalance.setText("Balance: " + balance);
-        System.out.println(leikmadur.getBalance());
     }
 
     /**
@@ -84,17 +93,68 @@ public class SpilController {
         return nafn;
     }
 
+    /**
+     * Opna dialog og spyrja upphæð sem hann vill byrja með, ef meira en 1000 er það sett auto í 1000
+     *
+     * @return upphæð
+     */
     private int hvadBalance() {
         BalanceDialogPane b = new BalanceDialogPane();
 
         int balance = Integer.parseInt(b.hvadBalance());
-        System.out.println(balance);
-        if (balance <= 0) { // ef ekkert nafn þá hætta í forriti
+        if (balance > 1000) {
+            balance = 1000;
+        }
+        if (balance < 1) { // ef minna en 1 hætta
             Platform.exit();
         }
+
+        //setur notandi sem valdi balance í breytuna
+        this.balance = balance;
         return balance;
     }
 
+
+    private void setBet(int bet) {
+        this.bet = bet;
+    }
+
+    private boolean getBet() {
+        if (fxBet.getText().isEmpty()) {
+            showAlert(10);
+        }
+        this.bet = Integer.parseInt(fxBet.getText());
+
+        if (bet > balance) {
+            showAlert(1);
+        } else {
+            System.out.println("bet tókst, " + bet + " balance " + balance);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Alert, fer eftir parameter
+     */
+    private void showAlert(int hvad) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Error");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        if (hvad == 1) {
+            alert.setContentText("Not enough balance for this bet");
+        }
+        if (hvad == 10) {
+            alert.setContentText("No bets placed");
+        }
+        alert.showAndWait();
+    }
+
+    public void doubleHandler(ActionEvent actionEvent) {
+
+    }
 
     /**
      * Handler fyrir að setja út nýtt spil - athuga hvor vann
@@ -102,6 +162,7 @@ public class SpilController {
      * @param actionEvent ónotað
      */
     @FXML
+
     public void nyttSpilHandler(ActionEvent actionEvent) {
         nyttSpil(leikmadur, fxLeikmadur);
         uppfaeraSamtals(fxLeikmadurNafn, leikmadur);
@@ -131,14 +192,20 @@ public class SpilController {
      */
     @FXML
     private void nyrLeikurHandler(ActionEvent actionEvent) {
-        nyrLeikur();
-        hvorVann();
+        if (getBet()) {
+            nyrLeikur();
+            hvorVann();
+        }
     }
 
     /**
      * Hjálparaðferð fyrir nýjan leik
      */
     private void nyrLeikur() {
+        if (balance < 1) {
+            System.out.println(balance);
+            Platform.exit();
+        }
         // nýir vinnsluhlutir eða upphafsstilltir
         stokkur = new Stokkur();
         leikmadur.nyrLeikur();
@@ -152,6 +219,14 @@ public class SpilController {
         // breyta stöðunni á hnöppunum
         stada.nyrLeikurStada();
     }
+
+    //hverfur alla spilana á borðinu
+    private void reset() {
+        // eyða gömlu spilunum hjá dealer og leikmanni
+        fxDealer.getChildren().removeAll(fxDealer.getChildren());
+        fxLeikmadur.getChildren().removeAll(fxLeikmadur.getChildren());
+    }
+
 
     /**
      * Athuga hvor vann og uppfæra notendaviðmót. Staða leiks breytist
@@ -173,7 +248,9 @@ public class SpilController {
      */
     private void upphafsstillaLeikmann(Leikmadur l, HBox h, Text nafn) {
         nyttSpil(l, h);
-        nyttSpil(l, h);
+        if (l == leikmadur) { // Gefa eitt spil til dealer og 2 til leikmann
+            nyttSpil(l, h);
+        }
         uppfaeraSamtals(nafn, l);
     }
 
@@ -214,7 +291,7 @@ public class SpilController {
      * @param l vinnsluhluti fyrir leikmann/dealer
      */
     private void vann(Text t, LeikmadurInterface l) {
-        t.setText(l.getNafn() + " " + l.getSamtals() + " vann");
+        t.setText(l.getNafn() + " " + l.getSamtals() + " won");
     }
 
 
@@ -233,6 +310,9 @@ public class SpilController {
             fxNyrLeikur.setDisable(false);
             fxNyttSpil.setDisable(true);
             fxKomidNog.setDisable(true);
+            fxDouble.setDisable(true);
+
+            fxBetButton.setDisable(false);
         }
 
 
@@ -245,6 +325,9 @@ public class SpilController {
             fxNyrLeikur.setDisable(true);
             fxNyttSpil.setDisable(false);
             fxKomidNog.setDisable(false);
+            fxDouble.setDisable(false);
+
+            fxBetButton.setDisable(true);
         }
 
     }

@@ -24,7 +24,7 @@ public class SpilApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SpilApplication.class.getResource(ADALVIDMOT));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Tuttugu og einn");
+        stage.setTitle("Blackjack");
         stage.setScene(scene);
         stage.show();
     }
