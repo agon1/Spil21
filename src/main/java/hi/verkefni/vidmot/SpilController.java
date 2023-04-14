@@ -117,11 +117,12 @@ public class SpilController {
         return balance;
     }
 
-
+    //set fyrir bet
     private void setBet(int bet) {
         this.bet = bet;
     }
 
+    //nær í bet frá textField
     private boolean getBet() {
         if (fxBet.getText().isEmpty()) {
             showAlert(10);
@@ -131,7 +132,7 @@ public class SpilController {
         if (bet > balance) {
             showAlert(1);
         } else {
-            System.out.println("bet tókst, " + bet + " balance " + balance);
+            System.out.println("bet tókst: " + bet + ", balance: " + balance);
             return true;
         }
         return false;
@@ -152,10 +153,28 @@ public class SpilController {
         if (hvad == 10) {
             alert.setContentText("No bets placed");
         }
+        if (hvad == 20) {
+            alert.setContentText("Not enough balance for doubling");
+        }
         alert.showAndWait();
     }
 
+    /**
+     * Tvöfaldar bettið ef mögulegt
+     * <p>
+     * Ef það nær er aðeins gefið eitt spil og klárað
+     */
     public void doubleHandler(ActionEvent actionEvent) {
+        int doubleBet = bet * 2;
+        if (doubleBet > balance) {
+            showAlert(20);
+        } else {
+            bet = doubleBet;
+            nyttSpil(leikmadur, fxLeikmadur);
+            uppfaeraSamtals(fxLeikmadurNafn, leikmadur);
+            hvorVann();
+            komidNogHandler(actionEvent);
+        }
 
     }
 
@@ -223,7 +242,7 @@ public class SpilController {
         stada.nyrLeikurStada();
     }
 
-    //hverfur alla spilana á borðinu
+    //hverfur alla spilana á borðinu, aðeins fyrir byrjunin
     private void reset() {
         // eyða gömlu spilunum hjá dealer og leikmanni
         fxDealer.getChildren().removeAll(fxDealer.getChildren());
