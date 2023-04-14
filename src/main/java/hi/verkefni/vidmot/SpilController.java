@@ -76,6 +76,9 @@ public class SpilController {
         leikmadur = new Leikmadur(nafn, MAX);
         int balance = hvadBalance();
         reset();
+        fxNyttSpil.setDisable(true);
+        fxKomidNog.setDisable(true);
+        fxDouble.setDisable(true);
         fxBalance.setText("Balance: " + balance);
     }
 
@@ -225,6 +228,7 @@ public class SpilController {
         // eyða gömlu spilunum hjá dealer og leikmanni
         fxDealer.getChildren().removeAll(fxDealer.getChildren());
         fxLeikmadur.getChildren().removeAll(fxLeikmadur.getChildren());
+
     }
 
 
@@ -268,8 +272,14 @@ public class SpilController {
         uppfaeraSamtals(fxDealerNafn, dealer);
         if (leikmadur.vinnurDealer(dealer)) {
             vann(fxDealerNafn, dealer);
+            balance -= bet;
+            // Update balance ef leikmaður vinnur
+            fxBalance.setText("Balance: " + balance);
         } else {
             vann(fxLeikmadurNafn, leikmadur);
+            balance += bet;
+            // Update balance ef leikmaður vinnur
+            fxBalance.setText("Balance: " + balance);
         }
         stada.leikLokidStada(); // leik er lokið
     }
