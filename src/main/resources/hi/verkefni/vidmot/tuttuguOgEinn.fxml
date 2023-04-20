@@ -5,104 +5,114 @@ Ebba Þóra Hvannberg
 Notendaviðmót fyrir aðalviðmót spil 21
 -->
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<Pane prefHeight="485.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.verkefni.vidmot.SpilController">
+<?import javafx.scene.text.*?>
+<Pane prefHeight="485.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="hi.verkefni.vidmot.SpilController">
     <children>
         <HBox prefHeight="485.0" prefWidth="773.0" style="-fx-background-color: black;">
             <children>
                 <StackPane prefHeight="475.0" prefWidth="612.0">
                     <children>
-                        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d2d1d0" height="472.0" stroke="BLACK" strokeType="INSIDE" width="607.0" />
+                        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d2d1d0" height="472.0" stroke="BLACK"
+                                   strokeType="INSIDE" width="607.0"/>
                         <VBox alignment="CENTER" prefHeight="475.0" prefWidth="413.0">
                             <children>
-                                <Text fx:id="fxDealerNafn" strokeType="OUTSIDE" strokeWidth="0.0" text="Dealer: 0 " textAlignment="CENTER" wrappingWidth="258.13672828674316">
+                                <Text fx:id="fxDealerNafn" strokeType="OUTSIDE" strokeWidth="0.0" text="Dealer: 0 "
+                                      textAlignment="CENTER" wrappingWidth="258.13672828674316">
                                     <font>
-                                        <Font size="25.0" />
+                                        <Font size="25.0"/>
                                     </font>
                                 </Text>
-                                <HBox fx:id="fxDealer" prefHeight="204.0" prefWidth="376.0">
+                                <HBox id="dealerBackground" fx:id="fxDealer" prefHeight="204.0" prefWidth="376.0"
+                                      stylesheets="@style.css">
                                     <padding>
-                                        <Insets left="10.0" />
+                                        <Insets left="10.0"/>
                                     </padding>
                                 </HBox>
-                                <Text fx:id="fxLeikmadurNafn" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet and press start" textAlignment="CENTER" wrappingWidth="258.13672828674316">
+                                <Text fx:id="fxLeikmadurNafn" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="Place/write bet amount and press start" textAlignment="CENTER"
+                                      wrappingWidth="258.13672828674316">
                                     <font>
-                                        <Font size="25.0" />
+                                        <Font size="25.0"/>
                                     </font>
                                 </Text>
-                                <Label fx:id="fxBalance" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="200.0" text="Balance:">
+                                <Label fx:id="fxBalance" maxHeight="-Infinity" maxWidth="-Infinity"
+                                       minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="200.0"
+                                       text="Balance:">
                                     <font>
-                                        <Font size="15.0" />
+                                        <Font size="15.0"/>
                                     </font>
                                     <VBox.margin>
-                                        <Insets left="40.0" />
+                                        <Insets left="40.0"/>
                                     </VBox.margin>
                                 </Label>
                                 <HBox fx:id="fxLeikmadur" alignment="CENTER_LEFT" prefHeight="203.0" prefWidth="597.0">
 
                                     <VBox.margin>
-                                        <Insets left="10.0" />
+                                        <Insets left="10.0"/>
                                     </VBox.margin>
                                 </HBox>
                             </children>
                         </VBox>
                     </children>
                     <HBox.margin>
-                        <Insets />
+                        <Insets/>
                     </HBox.margin>
                 </StackPane>
                 <VBox prefHeight="475.0" prefWidth="162.0">
                     <children>
-                        <Region prefHeight="360.0" prefWidth="162.0" />
+                        <Region prefHeight="360.0" prefWidth="162.0"/>
                         <StackPane prefHeight="430.0" prefWidth="201.0">
                             <children>
-                                <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d2d1d0" height="400.0" stroke="BLACK" strokeType="INSIDE" width="149.0" />
-                                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="155.0" spacing="5.0">
+                                <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d2d1d0" height="400.0" stroke="BLACK"
+                                           strokeType="INSIDE" width="149.0"/>
+                                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                                      minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="155.0"
+                                      spacing="5.0">
                                     <children>
-                                        <Button fx:id="fxNyrLeikur" mnemonicParsing="false" onAction="#nyrLeikurHandler" prefHeight="25.0" prefWidth="139.0" text="Start">
+                                        <Button fx:id="fxNyrLeikur" mnemonicParsing="false" onAction="#nyrLeikurHandler"
+                                                prefHeight="25.0" prefWidth="139.0" text="Start">
                                             <font>
-                                                <Font size="14.0" />
+                                                <Font size="14.0"/>
                                             </font>
                                             <VBox.margin>
-                                                <Insets bottom="40.0" />
+                                                <Insets bottom="40.0"/>
                                             </VBox.margin>
                                         </Button>
-                                        <Button fx:id="fxKomidNog" mnemonicParsing="false" onAction="#komidNogHandler" prefHeight="30.0" prefWidth="139.0" text="Stand">
+                                        <Button fx:id="fxKomidNog" mnemonicParsing="false" onAction="#komidNogHandler"
+                                                prefHeight="30.0" prefWidth="139.0" text="Stand">
                                             <font>
-                                                <Font size="14.0" />
+                                                <Font size="14.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="fxNyttSpil" layoutX="18.0" layoutY="114.0" mnemonicParsing="false" onAction="#nyttSpilHandler" prefHeight="25.0" prefWidth="139.0" text="Hit">
+                                        <Button fx:id="fxNyttSpil" layoutX="18.0" layoutY="114.0"
+                                                mnemonicParsing="false" onAction="#nyttSpilHandler" prefHeight="25.0"
+                                                prefWidth="139.0" text="Hit">
                                             <font>
-                                                <Font size="14.0" />
+                                                <Font size="14.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="fxDouble" mnemonicParsing="false" onAction="#doubleHandler" prefHeight="27.0" prefWidth="139.0" text="Double">
+                                        <Button fx:id="fxDouble" mnemonicParsing="false" onAction="#doubleHandler"
+                                                prefHeight="27.0" prefWidth="139.0" text="Double">
                                             <font>
-                                                <Font size="14.0" />
+                                                <Font size="14.0"/>
                                             </font>
                                         </Button>
-                                        <Button fx:id="fxBetButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0" text="Your Bet:">
+                                        <Button fx:id="fxBetButton" mnemonicParsing="false" prefHeight="30.0"
+                                                prefWidth="139.0" text="Your Bet:">
                                             <font>
-                                                <Font size="14.0" />
+                                                <Font size="14.0"/>
                                             </font>
                                             <VBox.margin>
-                                                <Insets top="10.0" />
+                                                <Insets top="10.0"/>
                                             </VBox.margin>
                                         </Button>
-                                        <TextField fx:id="fxBet" maxWidth="-Infinity" minHeight="-Infinity" minWidth="67.0" prefHeight="35.0" prefWidth="106.0" />
+                                        <TextField fx:id="fxBet" maxWidth="-Infinity" minHeight="-Infinity"
+                                                   minWidth="67.0" prefHeight="35.0" prefWidth="106.0"/>
                                     </children>
                                 </VBox>
                             </children>
@@ -111,7 +121,7 @@ Notendaviðmót fyrir aðalviðmót spil 21
                 </VBox>
             </children>
             <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
             </padding>
         </HBox>
     </children>

@@ -131,6 +131,8 @@ public class Leikmadur implements LeikmadurInterface {
             System.out.println(leikmadur.hvorVann(dealer));
             System.out.println("vinnur dealer ");
             System.out.println(leikmadur.vinnurDealer(dealer));
+            System.out.println("vinnur leikmaður ");
+            System.out.println(leikmadur.vinnurDealer(leikmadur));
         }
     }
 }

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: hi.verkefni.vinnsla:Spil21:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/hi/verkefni/vinnsla/Spil21/1.0-SNAPSHOT/Spil21-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/hi/verkefni/vinnsla/Spil21/1.0-SNAPSHOT/Spil21-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/hi/verkefni/vinnsla/Spil21/1.0-SNAPSHOT/Spil21-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

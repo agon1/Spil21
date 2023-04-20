@@ -247,7 +247,6 @@ public class SpilController {
         // eyða gömlu spilunum hjá dealer og leikmanni
         fxDealer.getChildren().removeAll(fxDealer.getChildren());
         fxLeikmadur.getChildren().removeAll(fxLeikmadur.getChildren());
-
     }
 
 
@@ -256,10 +255,16 @@ public class SpilController {
      */
     private void hvorVann() {
         LeikmadurInterface l = leikmadur.hvorVann(dealer);
+        if (leikmadur.getSamtals() == dealer.getSamtals()) {
+            System.out.println("draw");
+            fxBalance.setText("Balance: " + balance + "            DRAW/PUSH");
+            stada.leikLokidStada();
+        }
         if (l != null) {
             vann(l == leikmadur ? fxLeikmadurNafn : fxDealerNafn, l);
             stada.leikLokidStada();     // staðan er leik lokið
         }
+
     }
 
     /**
@@ -289,16 +294,16 @@ public class SpilController {
             nyttSpil(dealer, fxDealer);
         }
         uppfaeraSamtals(fxDealerNafn, dealer);
-        if (leikmadur.vinnurDealer(dealer)) {
-            vann(fxDealerNafn, dealer);
-            balance -= bet;
-            // Update balance ef leikmaður vinnur
-            fxBalance.setText("Balance: " + balance);
+        if (leikmadur.getSamtals() == dealer.getSamtals()) {
+            System.out.println("draw");
+            stada.leikLokidStada();
+
         } else {
-            vann(fxLeikmadurNafn, leikmadur);
-            balance += bet;
-            // Update balance ef leikmaður vinnur
-            fxBalance.setText("Balance: " + balance);
+            if (leikmadur.vinnurDealer(dealer)) {
+                vann(fxDealerNafn, dealer);
+            } else {
+                vann(fxLeikmadurNafn, leikmadur);
+            }
         }
         stada.leikLokidStada(); // leik er lokið
     }
@@ -321,6 +326,15 @@ public class SpilController {
      */
     private void vann(Text t, LeikmadurInterface l) {
         t.setText(l.getNafn() + " " + l.getSamtals() + " won");
+        if (l == leikmadur) {
+            balance += bet;
+            // Update balance ef leikmaður vinnur
+            fxBalance.setText("Balance: " + balance);
+        } else {
+            balance -= bet;
+            // Update balance ef leikmaður tapar
+            fxBalance.setText("Balance: " + balance);
+        }
     }
 
 

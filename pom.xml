@@ -45,8 +45,9 @@ mvn install:intall-file -Dfile=Spil21Library.jar -DgroupId=hi.verkefni.vinnsla
         -->
         <dependency>
             <groupId>hi.verkefni.vinnsla</groupId>
-            <artifactId>Spil21Library</artifactId>
-            <version>1.0</version>
+            <artifactId>Spil21</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <packaging>jar</packaging>
         </dependency>
 
     </dependencies>

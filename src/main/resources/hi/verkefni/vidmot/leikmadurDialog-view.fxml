@@ -6,26 +6,27 @@ Notendaviðmót fyrir dialog sem biður um nafn leikmanns
 -->
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ButtonType?>
-<?import javafx.scene.control.DialogPane?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
-
-<fx:root minHeight="-Infinity" minWidth="-Infinity" prefHeight="143.0" prefWidth="305.0" type="javafx.scene.control.DialogPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.Font?>
+<fx:root minHeight="-Infinity" minWidth="-Infinity" prefHeight="143.0" prefWidth="305.0"
+         type="javafx.scene.control.DialogPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <header>
-        <Label prefHeight="42.0" prefWidth="360.0" text="Nafn leikmanns">
+        <Label prefHeight="42.0" prefWidth="360.0" text="Name">
             <padding>
-                <Insets left="10.0" />
+                <Insets left="10.0"/>
             </padding>
+            <font>
+                <Font size="20.0"/>
+            </font>
         </Label>
     </header>
-    <ButtonType fx:id="fxILagi" buttonData="OK_DONE" text="Í lagi" />
-    <ButtonType fx:id="fxHaettaVid" buttonData="CANCEL_CLOSE" text="Hætta við" />
+    <ButtonType fx:id="fxILagi" buttonData="OK_DONE" text="Í lagi"/>
+    <ButtonType fx:id="fxHaettaVid" buttonData="CANCEL_CLOSE" text="Hætta við"/>
     <content>
         <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
-                <TextField fx:id="fxLeikmadur" prefHeight="45.0" prefWidth="268.0" />
+                <TextField fx:id="fxLeikmadur" prefHeight="45.0" prefWidth="268.0"/>
             </children>
         </VBox>
     </content>
