@@ -172,8 +172,14 @@ public class SpilController {
             bet = doubleBet;
             nyttSpil(leikmadur, fxLeikmadur);
             uppfaeraSamtals(fxLeikmadurNafn, leikmadur);
-            hvorVann();
-            komidNogHandler(actionEvent);
+            if (leikmadur.getSamtals() > 21) {
+                vann(fxDealerNafn, dealer);
+                stada.leikLokidStada();
+                bet = 0;
+            } else {
+                hvorVann();
+                komidNogHandler(actionEvent);
+            }
         }
 
     }
